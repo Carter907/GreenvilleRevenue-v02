@@ -13,7 +13,7 @@ class Program
 
             if (input == "1")
             {
-                printMoreContestants();
+                printResults();
             }
 
         } while (input != "2");
@@ -34,16 +34,22 @@ Please Enter the following number below from the following menu:
       ");
 
     }
-    static void printMoreContestants()
+    static void printResults()
     {
         Console.WriteLine("Please enter the contestants for the previous year");
         var previousYear = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Please enter the contestants for this year");
         var currYear = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Last year's competition had {0} contestants, and this year's has {1} contestants", previousYear, currYear);
-        if (currYear > previousYear)
-            Console.WriteLine("It is true that this year's competition is bigger than last year's.");
-        else
-            Console.WriteLine("It is false that this year's competition is bigger than last year's.");
+        Console.WriteLine("Revenue expected this year is {0:C0}", currYear * 25);
+
+        if (currYear > previousYear) {
+            if (currYear > 2 * previousYear) {
+              Console.WriteLine("The competition is more than twice as big this year!");
+            }
+            Console.WriteLine("The competition is bigger than ever!");
+          } else {
+            Console.WriteLine("A tighter race this year! Come out and cast your vote!");
+          }
     }
 }
