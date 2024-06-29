@@ -37,11 +37,15 @@ Main METHOD
         PRINT FORMATTED: previousYear, currYear
           - "Last year's competition had {0} contestants, and this year's has {1} contestants"
         IF (currYear > previousYear)
-            PRINT
-              - "It is true that this year's competition is bigger than last year's."
+            IF (currYear > 2 * previousYear)
+                PRINT
+                   - "The competition is more than twice as big this year!"
+            ELSE
+                PRINT
+                   - "The competition is bigger than ever!"
         ELSE
             PRINT
-              - "It is false that this year's competition is bigger than last year's."
+              - "A tighter race this year! Come out and cast your vote!"
     
 END Program
 END
